@@ -2,6 +2,7 @@ package pl.damianrowinski.springappadswithregistration.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import pl.damianrowinski.springappadswithregistration.model.repositories.UserRep
 public class RegistrationController {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     public String getRegistration() {
@@ -25,8 +27,9 @@ public class RegistrationController {
     @PostMapping
     public String processRegistration(String username, String password, String firstName, String lastName) {
         User user = new User();
+        String encodedPassword = passwordEncoder.encode(password);
         user.setUsername(username);
-        user.setPassword(password);
+        user.setPassword(encodedPassword);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setActive(true);
