@@ -6,4 +6,6 @@ import pl.damianrowinski.springappadswithregistration.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findFirstByUsername(String userName);
 }
