@@ -20,7 +20,7 @@ public class Advert {
     final static String TABLE_NAME = "adverts";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull

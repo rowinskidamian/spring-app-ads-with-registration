@@ -12,7 +12,7 @@ import java.util.Objects;
 @Transactional
 @Getter
 @Setter
-@Table(name =User.TABLE_NAME)
+@Table(name = User.TABLE_NAME)
 public class User {
     final static String TABLE_NAME = "users";
 
@@ -34,6 +34,10 @@ public class User {
 
     @Column(nullable = false)
     private Boolean active;
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 
     @Override
     public boolean equals(Object o) {

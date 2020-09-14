@@ -17,9 +17,9 @@ public class HomepageController {
     private final AdvertRepository advertRepository;
 
     @GetMapping
-    public String prepareHomepage(Model model) {
-        List<Advert> allOrderByPostedDesc = advertRepository.findAllOrderByPostedDesc();
-        model.addAttribute("adverts", allOrderByPostedDesc);
-        return "";
+    public String generateHomepage(Model model) {
+        List<Advert> allAds = advertRepository.findAllOrderByPostedAscending();
+        model.addAttribute("advertisements", allAds);
+        return "homepage";
     }
 }
