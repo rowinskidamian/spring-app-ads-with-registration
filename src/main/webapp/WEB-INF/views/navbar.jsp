@@ -81,7 +81,6 @@
         <sec:authorize access="isAuthenticated()">
                 <div class="navbar-item">
                     <div class="buttons">
-                        Witaj, <strong> ${pageContext.request.userPrincipal.principal.username} </strong> .
                         <a class="button is-success" href="/logout">
                             <strong>Wyloguj</strong>
                         </a>

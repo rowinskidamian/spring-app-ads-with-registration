@@ -20,7 +20,7 @@
                 Strona z ogłoszeniami
             </h1>
             <h2 class="subtitle">
-                Witaj na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i ich autorów.
+                Witaj ${pageContext.request.userPrincipal.principal.fullName} na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i ich autorów.
             </h2>
         </div>
     </div>

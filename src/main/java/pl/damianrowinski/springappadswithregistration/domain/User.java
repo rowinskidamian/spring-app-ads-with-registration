@@ -35,6 +35,9 @@ public class User {
     @Column(nullable = false)
     private Boolean active;
 
+//    @Transient
+//    private String fullName = firstName + lastName;
+
     public String getFullName() {
         return firstName + " " + lastName;
     }
