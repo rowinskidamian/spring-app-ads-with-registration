@@ -17,20 +17,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final DataSource dataSource;
 
+    // dodać listę statycznych zasobów, aby zrobić dostęp dla niezalogowanych użytkowników
+    private String[] staticResources = {
+            "/css/**",
+            "/images/**",
+            "/fonts/**",
+            "/scripts/**",
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                    .antMatchers("/register").permitAll()
-                    .antMatchers("/").permitAll()
-                    .antMatchers("/login").anonymous()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers(staticResources).permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/login").anonymous()
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/")
-                    .and()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+                .and()
                 .logout()
-                    .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/");
     }
 
     @Override

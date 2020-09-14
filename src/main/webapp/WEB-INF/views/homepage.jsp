@@ -9,7 +9,11 @@
 </head>
 <body>
 
-<section class="hero is-primary">
+<section class="navbar">
+    <jsp:include page="navbar.jsp"/>
+</section>
+
+<section class="hero is-success">
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
