@@ -40,18 +40,12 @@
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        Usuń ogłoszenie
-                    </a>
-                    <a class="navbar-item">
-                        Edytuj ogłoszenie
-                    </a>
-                    <a class="navbar-item">
-                        Lista ogłoszeń moich
+                    <a class="navbar-item" href="/user-adverts">
+                        Lista moich ogłoszeń
                     </a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">
-                        Lista ogłoszeń wszystkich
+                        Lista wszystkich ogłoszeń
                     </a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">
