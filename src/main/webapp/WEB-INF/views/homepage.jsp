@@ -27,17 +27,21 @@
 </section>
 
 <section class="section">
-    <sec:authorize access="isAuthenticated()">
-        <div class="containter">
-            <h1>Formularz dodawania ogłoszenia:</h1>
-            <jsp:include page="/advertisement-form"/>
-        </div>
-    </sec:authorize>
-
-
+    <div class="container">
+        <sec:authorize access="isAuthenticated()">
+            <div class="containter">
+                <h5 class="title is-5 has-text-centered">Formularz dodawania ogłoszenia</h5>
+                <jsp:include page="/advertisement-form"/>
+            </div>
+        </sec:authorize>
+    </div>
 
     <div class="container">
-        <h1>Lista ogłoszeń</h1>
+        <div class="notification is-success">
+            <div class="column is-full">
+                <h4 class="title is-4 has-text-centered"> Lista ogłoszeń </h4>
+            </div>
+        </div>
         <table class="table is-striped is-hoverable">
             <thead>
             <tr>
