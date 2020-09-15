@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Webiste Home Page</title>
+    <title>Website Home Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 Strona z ogłoszeniami
             </h1>
             <h2 class="subtitle">
-                Witaj ${pageContext.request.userPrincipal.principal.fullName} na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i ich autorów.
+                Witaj ${userFirstName} na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i ich autorów.
             </h2>
         </div>
     </div>
