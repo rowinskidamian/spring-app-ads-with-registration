@@ -24,7 +24,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" href="/">
                 Strona główna
             </a>
 
@@ -44,7 +44,7 @@
                         Lista moich ogłoszeń
                     </a>
                     <hr class="navbar-divider">
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="/ads-all">
                         Lista wszystkich ogłoszeń
                     </a>
                     <hr class="navbar-divider">

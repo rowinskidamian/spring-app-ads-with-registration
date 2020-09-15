@@ -20,7 +20,8 @@
                 Strona z ogłoszeniami
             </h1>
             <h2 class="subtitle">
-                Witaj ${userFirstName} na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i ich autorów.
+                Witaj ${userFirstName} na stronie z ogłoszeniami, gdzie możesz dodawać, przeglądać, usuwać ogłoszenia i
+                ich autorów.
             </h2>
         </div>
     </div>
@@ -40,6 +41,7 @@
         <div class="notification is-success">
             <div class="column is-full">
                 <h4 class="title is-4 has-text-centered"> Lista ogłoszeń </h4>
+                <h5 class="subtitle is-5 has-text-centered"> Najnowszych 5 ogłoszeń. </h5>
             </div>
         </div>
         <table class="table is-striped is-hoverable">
@@ -58,8 +60,15 @@
                     <td>${counter.count}</td>
                     <td>${advert.title}</td>
                     <td>${advert.description}</td>
-                    <td>${advert.user.fullName}</td>
-                    <td>${advert.posted}</td>
+                    <td>
+                        <sec:authorize access="isAuthenticated()">
+                            <a href="/user-adverts/${advert.user.id}"> ${advert.user.fullName}</a>
+                        </sec:authorize>
+                        <sec:authorize access="isAnonymous()">
+                            ${advert.user.fullName}
+                        </sec:authorize>
+                    </td>
+                    <td>${advert.formattedPosted()}</td>
                 </tr>
             </c:forEach>
             </tbody>

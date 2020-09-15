@@ -23,16 +23,20 @@ public class HomepageController {
 
     @GetMapping
     public String generateHomepage(Model model, Principal principal) {
+        List<Advert> adsToShow;
 
         if (principal!= null) {
             String loggedUserName = principal.getName();
             User loggedUser = userRepository.findFirstByUsername(loggedUserName);
             String loggedUserFirstName = loggedUser.getFirstName();
             model.addAttribute("userFirstName", loggedUserFirstName);
+            adsToShow = advertRepository.findAllOrderByPostedAscending();
+        } else {
+            adsToShow = advertRepository.findFirst5ByOrderByPostedDesc();
         }
 
-        List<Advert> allAds = advertRepository.findAllOrderByPostedAscending();
-        model.addAttribute("advertisements", allAds);
+
+        model.addAttribute("advertisements", adsToShow);
 
         return "homepage";
     }

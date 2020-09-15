@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Entity
@@ -40,6 +41,11 @@ public class Advert {
     @PrePersist
     private void prePersist() {
         posted = LocalDateTime.now();
+    }
+
+    public String formattedPosted() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.M.y HH:mm");
+        return posted.format(formatter);
     }
 
     @Override
