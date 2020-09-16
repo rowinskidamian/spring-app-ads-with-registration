@@ -2,6 +2,8 @@ package pl.damianrowinski.springappadswithregistration.services;
 
 import pl.damianrowinski.springappadswithregistration.model.dtos.AdvertAddDTO;
 
+import java.security.Principal;
+
 public interface AdvertService {
-    void save(AdvertAddDTO advertAddDTO);
+    void saveAdByLoggedUser(AdvertAddDTO advertAddDTO, Principal principal);
 }

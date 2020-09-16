@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.damianrowinski.springappadswithregistration.domain.entities.Advert;
 import pl.damianrowinski.springappadswithregistration.domain.entities.User;
+import pl.damianrowinski.springappadswithregistration.model.dtos.AdvertAddDTO;
 import pl.damianrowinski.springappadswithregistration.model.repositories.AdvertRepository;
 import pl.damianrowinski.springappadswithregistration.model.repositories.UserRepository;
+import pl.damianrowinski.springappadswithregistration.services.AdvertService;
 
 import java.security.Principal;
 import java.util.List;
@@ -17,24 +19,21 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AdvertisementController {
 
+    private final AdvertService advertService;
+
     private final AdvertRepository advertRepository;
     private final UserRepository userRepository;
 
     @GetMapping("/advertisement-form")
     public String generateForm(Model model) {
-        Advert advert = new Advert();
-        model.addAttribute("advertisement", advert);
+        AdvertAddDTO advertAddDTO = new AdvertAddDTO();
+        model.addAttribute("advertisement", advertAddDTO);
         return "/advertisement-form";
     }
 
-
-    // poniżej jest opcja 'zaciągania aktualnie zalogowanego użytkownika' przez obiekt Principal
     @PostMapping("/advertisement-form")
-    public String addForm(@ModelAttribute Advert advert, Principal principal) {
-        String userName = principal.getName();
-        User loggedUser = userRepository.findFirstByUsername(userName);
-        advert.setUser(loggedUser);
-        advertRepository.save(advert);
+    public String addForm(@ModelAttribute AdvertAddDTO advertData, Principal principal) {
+        advertService.saveAdByLoggedUser(advertData, principal);
         return "redirect:/";
     }
 
