@@ -85,4 +85,9 @@ public class AdvertisementController {
         advertRepository.delete(advert);
         return "redirect:/user-adverts";
     }
+
+    @GetMapping("/logout-confirm")
+    public String confirmLogout() {
+        return "/logout-confirm";
+    }
 }

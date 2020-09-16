@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form:form modelAttribute="advertisement" method="post" action="/advertisement-form">
+    <form:form modelAttribute="advertisement" method="post">
         <div class="field">
             <label class="label">Tytuł: </label>
             <div class="control">

@@ -75,9 +75,9 @@
         <sec:authorize access="isAuthenticated()">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-success" href="/logout">
-                            <strong>Wyloguj</strong>
-                        </a>
+                            <a class="button is-success" href="/logout-confirm">
+                                <strong>Wyloguj</strong>
+                            </a>
                     </div>
                 </div>
         </sec:authorize>
