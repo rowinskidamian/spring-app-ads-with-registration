@@ -52,6 +52,9 @@
                 <th>Treść ogłoszenia</th>
                 <th>Autor ogłoszenia</th>
                 <th>Data i czas dodania</th>
+                <sec:authorize access="isAuthenticated()">
+                    <th>Ulubione</th>
+                </sec:authorize>
             </tr>
             </thead>
             <tbody>
@@ -69,6 +72,20 @@
                         </sec:authorize>
                     </td>
                     <td>${advert.formattedPosted()}</td>
+                    <sec:authorize access="isAuthenticated()">
+                        <td>
+                            <c:set var="isInList" scope="session" value="false"/>
+                            <c:forEach items="${favouriteAds}" var="favouriteAd">
+                                    <c:if test="${favouriteAd.id eq advert.id}">
+                                        <a href="/adverts/favourite/delete/${advert.id}">Usuń z ulubionych</a>
+                                        <c:set var="isInList" scope="session" value="true"/>
+                                    </c:if>
+                            </c:forEach>
+                            <c:if test="${isInList eq false}">
+                                <a href="/adverts/favourite/add/${advert.id}">Dodaj do ulubionych</a>
+                            </c:if>
+                        </td>
+                    </sec:authorize>
                 </tr>
             </c:forEach>
             </tbody>

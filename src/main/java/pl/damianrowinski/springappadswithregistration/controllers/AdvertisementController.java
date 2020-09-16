@@ -86,8 +86,37 @@ public class AdvertisementController {
         return "redirect:/user-adverts";
     }
 
-    @GetMapping("/logout-confirm")
-    public String confirmLogout() {
-        return "/logout-confirm";
+    @GetMapping("/advert/edit/{id}")
+    public String generateEditPage(@PathVariable Long id, Model model, Principal principal) {
+        Optional<Advert> optionalAdvert = advertRepository.findById(id);
+
+        if (!optionalAdvert.isPresent()) {
+            model.addAttribute("errorMessage", "Nie ma ogłoszenia o podanym id");
+            return "error-app-page";
+        }
+
+        String username = principal.getName();
+        User loggedUser = userRepository.findFirstByUsername(username);
+        Long idOfUserFromCurrentAdvert = optionalAdvert.get().getUser().getId();
+        if (loggedUser.getId() != idOfUserFromCurrentAdvert) {
+            model.addAttribute("errorMessage", "Nie możesz edytować ogłoszenia innego użytkownika.");
+            return "error-app-page";
+        }
+
+        Advert advertToEdit = optionalAdvert.get();
+        model.addAttribute("advertisement", advertToEdit);
+
+        return "advertisement-form-edit";
     }
+
+
+    @PostMapping("/advert/edit/{id}")
+    public String editedAdvert(@ModelAttribute Advert advert) {
+        advertRepository.save(advert);
+        return "redirect:/user-adverts";
+    }
+
+
+
+
 }

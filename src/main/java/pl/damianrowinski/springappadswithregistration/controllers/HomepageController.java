@@ -12,7 +12,7 @@ import pl.damianrowinski.springappadswithregistration.model.repositories.UserRep
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/")
@@ -30,11 +30,16 @@ public class HomepageController {
             User loggedUser = userRepository.findFirstByUsername(loggedUserName);
             String loggedUserFirstName = loggedUser.getFirstName();
             model.addAttribute("userFirstName", loggedUserFirstName);
+
+            User userWithAdsList = userRepository.findUserByUsernameWithFavouriteAdverts(loggedUserName);
+
+            Set<Advert> favouriteAdverts = userWithAdsList.getFavouriteAdverts();
+            model.addAttribute("favouriteAds", favouriteAdverts);
+
             adsToShow = advertRepository.findAllOrderByPostedAscending();
         } else {
             adsToShow = advertRepository.findFirst5ByOrderByPostedDesc();
         }
-
 
         model.addAttribute("advertisements", adsToShow);
 

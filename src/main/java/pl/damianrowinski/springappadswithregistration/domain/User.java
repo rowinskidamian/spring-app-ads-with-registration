@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Transactional
@@ -35,11 +37,15 @@ public class User {
     @Column(nullable = false)
     private Boolean active;
 
-//    @Transient
-//    private String fullName = firstName + lastName;
+    @ManyToMany
+    private Set<Advert> favouriteAdverts;
 
     public String getFullName() {
         return firstName + " " + lastName;
+    }
+
+    public User() {
+    this.favouriteAdverts = new HashSet<>();
     }
 
     @Override

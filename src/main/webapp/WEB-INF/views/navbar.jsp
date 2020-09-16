@@ -48,8 +48,8 @@
                         Lista wszystkich ogłoszeń
                     </a>
                     <hr class="navbar-divider">
-                    <a class="navbar-item">
-                        Ogłoszenia obserwowane
+                    <a class="navbar-item" href="/adverts/favourite/all">
+                        Ulubione ogłoszenia
                     </a>
                 </div>
             </div>
