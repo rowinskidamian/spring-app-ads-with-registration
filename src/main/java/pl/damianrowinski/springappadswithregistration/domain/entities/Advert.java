@@ -1,4 +1,4 @@
-package pl.damianrowinski.springappadswithregistration.domain;
+package pl.damianrowinski.springappadswithregistration.domain.entities;
 
 import com.sun.istack.NotNull;
 import lombok.Getter;

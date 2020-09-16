@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Advertisement Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/a1834f9866.js" crossorigin="anonymous"></script>
 </head>
 <body>
 

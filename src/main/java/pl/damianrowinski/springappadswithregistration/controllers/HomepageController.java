@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.damianrowinski.springappadswithregistration.domain.Advert;
-import pl.damianrowinski.springappadswithregistration.domain.User;
+import pl.damianrowinski.springappadswithregistration.domain.entities.Advert;
+import pl.damianrowinski.springappadswithregistration.domain.entities.User;
 import pl.damianrowinski.springappadswithregistration.model.repositories.AdvertRepository;
 import pl.damianrowinski.springappadswithregistration.model.repositories.UserRepository;
 

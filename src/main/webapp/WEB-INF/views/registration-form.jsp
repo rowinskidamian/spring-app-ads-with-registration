@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formularz rejestracyjny</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/a1834f9866.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -24,19 +26,19 @@
         </p>
     </div>
     <div class="container">
-        <form method="post" action="/register">
+        <form:form modelAttribute="userData" action="/register" method="post">
 
             <div class="field">
                 <label class="label">Nazwa użytkownika</label>
                 <div class="control">
-                    <input class="input" type="text" name="username" placeholder="Podaj nazwę użytkownika">
+                    <form:input path="username" cssClass="input"/>
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Imię</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" name="firstName" placeholder="Imię">
+                    <form:input path="firstName" cssClass="input"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -46,7 +48,7 @@
             <div class="field">
                 <label class="label">Nazwisko</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" name="lastName" placeholder="Nazwisko">
+                    <form:input path="lastName" cssClass="input"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -56,7 +58,7 @@
             <div class="field">
                 <label class="label">Hasło</label>
                 <div class="control has-icons-left">
-                    <input class="input" type="password" name="password" placeholder="Hasło">
+                    <form:password path="password" cssClass="input"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
@@ -71,9 +73,9 @@
                     <button class="button is-link is-light" type="reset">Wyczyść</button>
                 </div>
             </div>
-<%--            poniższe dodajemy, aby wykorzystać wbudowany mechanizm Springa zabezpieczający przed atakami CSRF--%>
+            <%--            poniższe dodajemy, aby wykorzystać wbudowany mechanizm Springa zabezpieczający przed atakami CSRF--%>
             <sec:csrfInput/>
-        </form>
+        </form:form>
     </div>
 </section>
 </body>

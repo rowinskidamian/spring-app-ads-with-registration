@@ -3,7 +3,7 @@ package pl.damianrowinski.springappadswithregistration.model.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import pl.damianrowinski.springappadswithregistration.domain.User;
+import pl.damianrowinski.springappadswithregistration.domain.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
