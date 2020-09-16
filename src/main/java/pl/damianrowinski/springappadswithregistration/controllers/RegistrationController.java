@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.damianrowinski.springappadswithregistration.model.dtos.UserAddDTO;
+import pl.damianrowinski.springappadswithregistration.services.UserRegistrationService;
 import pl.damianrowinski.springappadswithregistration.services.impl.UserRegistrationServiceImpl;
 
 @Controller
@@ -15,7 +16,7 @@ import pl.damianrowinski.springappadswithregistration.services.impl.UserRegistra
 @RequiredArgsConstructor
 public class RegistrationController {
 
-    private final UserRegistrationServiceImpl userRegistrationService;
+    private final UserRegistrationService userRegistrationService;
 
     @GetMapping
     public String getRegistration(Model model) {
